@@ -87,3 +87,5 @@ In each file make sure to create a base function using the 'rfc' snippet from th
 Once this is done, we need to setup our routes to each page. To do this we will install another package for React Router DOM. We will do this with:
 
   npm i react-router-dom
+
+From here we will setup the routes. Make sure to import BrowserRouter, Routes, and Route from 'react-router-dom' and to import all of newly created pages. Then we will setup the App.jsx page with all of our pages and routes. After this go to your browser and try out going to each page to ensure there are no typos.
