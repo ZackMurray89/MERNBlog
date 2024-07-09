@@ -59,6 +59,11 @@ Source Code:
 - [TailwindCSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 -- Intellisense for TailwindCSS
 
+### Component Libraries
+
+- [Flowbite React](https://flowbite-react.com/)
+-- Library we will build our components with
+
 ## Project Setup
 
 The first bit of the video goes over project setup. Installing React w/ Vite, and all of its' necessary dependencies. I highly suggest going step by step, and pausing the video for each install. Don't forget to switch the language mode inside of your CSS files to TailwindCSS so that you don't have mistake underlines everywhere.
@@ -89,3 +94,7 @@ Once this is done, we need to setup our routes to each page. To do this we will 
   npm i react-router-dom
 
 From here we will setup the routes. Make sure to import BrowserRouter, Routes, and Route from 'react-router-dom' and to import all of newly created pages. Then we will setup the App.jsx page with all of our pages and routes. After this go to your browser and try out going to each page to ensure there are no typos.
+
+## Components
+
+Now we will start to build our components. The first one will be our header. So, create a 'Header.jsx' file, add it to our BrowserRouter, and use CTRL+Space to import it at the top of the file. To do this we will be using 'Flowbite React'
