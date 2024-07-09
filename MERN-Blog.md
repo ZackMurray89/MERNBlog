@@ -25,6 +25,8 @@ Source Code:
 -- JavaScript Runtime
 - [ViteJS](https://vitejs.dev/)
 -- JavaScript Build-Tool
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+-- Helps with writing our Redux Logic
 - [NPM-Node Package Manager](https://www.npmjs.com/)
 -- Node Package Manager
 - [Nodemon](https://nodemon.io/)
@@ -41,6 +43,10 @@ Source Code:
 -- URL-safe means of representing claims to be transferred between two parties
 - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
 -- Parses HTTP Cookies
+- [Git](https://git-scm.com/)
+-- Version control system
+- [GitHub](https://github.com/)
+-- Where we will host our repository for others to see
 
 ### VSCode Extension
 
@@ -60,3 +66,24 @@ The first bit of the video goes over project setup. Installing React w/ Vite, an
 ### Hot Reload Issue w/ WSL2
 
 If you're on Windows, and use WSL2 with the Bash/ZSH terminal, I suggest switching to a different terminal to run your dev server. After hours of searching, I've found that the hot reload feature with Vite does not work well with a terminal based in WSL, and you will have to restart your server every time you want to see an update. Personally, I use GitBash when I can't use my ZSH terminal. That way I can still use the same commands. Don't forget to rerun 'npm i' in this new terminal before attempting to start up your dev server with 'npm run dev'.
+
+### Git and GitHub Setup
+
+After creating installing everything and setting up our template it's now time to initialize a Git and GitHub repository. Just follow the same basic steps as you would with any other project.
+
+## Pages & Routes
+
+First we will create the pages needed to get started.
+
+- About.jsx
+- Dashboard.jsx
+- Home.jsx
+- Projects.jsx
+- Signin.jsx
+- Signup.jsx
+
+In each file make sure to create a base function using the 'rfc' snippet from the React7 extension. If you aren't able to create this function by just typing 'rfc' make sure you have the extension installed, updated, and that it is running.
+
+Once this is done, we need to setup our routes to each page. To do this we will install another package for React Router DOM. We will do this with:
+
+  npm i react-router-dom
