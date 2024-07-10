@@ -11,10 +11,9 @@ export default function Header() {
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <span className='px-2 py-1 mx-1 bg-gradient-to-r from-green-400 via-emerald-400 to-emerald-700 rounded-lg text-white'>
-          Zack&apos;s
+        <span className='px-2 py-1 mx-1 bg-gradient-to-r from-green-300 via-green-400 to-green-500 rounded-lg text-white'>
+          WebNexus.dev Blog
         </span>
-        Blog
       </Link>
       <form>
         <TextInput
