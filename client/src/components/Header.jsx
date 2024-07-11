@@ -28,7 +28,7 @@ export default function Header() {
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
-        <Button className='w-12 h-10 hidden sm:inline' color='gray' pill>
+        <Button className='w-12 h-10 hidden sm:inline ' color='gray' pill>
           <FaMoon />
         </Button>
         <Link to='/sign-in'>
@@ -36,7 +36,7 @@ export default function Header() {
             className=' bg-gradient-to-r from-green-600 via-green-500 to-green-400'
             outline
           >
-            <span className='flex gap-1 items-center text-center subpixel-antialiased font-semibold'>
+            <span className='flex gap-1 items-center text-center text-xs subpixel-antialiased font-semibold'>
               <PiSignIn /> Sign In
             </span>
           </Button>

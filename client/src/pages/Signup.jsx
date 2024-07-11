@@ -1,12 +1,13 @@
-import { Alert, Button, Label, TextInput } from 'flowbite-react'
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CiCircleAlert } from 'react-icons/ci'
 
 export default function Signup() {
   const [formData, setFormData] = useState({})
   const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() })
   }
@@ -16,19 +17,31 @@ export default function Signup() {
       return setErrorMessage('Please fill out all fields.')
     }
     try {
+      setLoading(true)
+      setErrorMessage(null)
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
       const data = await res.json()
-    } catch (error) {}
+      if (data.success === false) {
+        return setErrorMessage(data.message)
+      }
+      setLoading(false)
+      if (res.ok) {
+        navigate('/sign-in')
+      }
+    } catch (error) {
+      setErrorMessage(error.message)
+      setLoading(false)
+    }
   }
   return (
-    <div className='min-h-screen mt-6'>
+    <div className='min-h-screen mt-6 m-6'>
       <div className='flex max-w-4xl mx-auto flex-col md:flex-row md:items-center gap-6'>
         {/* Left Side */}
-        <div className='flex-1'>
+        <div className='flex-1 sticky'>
           <Link
             to='/'
             className='text-sm sm:text-xl font-semibold dark:text-white'
@@ -76,20 +89,33 @@ export default function Signup() {
               className='bg-gradient-to-r from-green-600 via-green-500 to-green-400 hover:from-green-400 hover:to-green-600'
               type='submit'
             >
-              <p className='text-md font-semibold'>Sign Up</p>
+              <p className='text-md font-semibold'>
+                {loading ? (
+                  <>
+                    <Spinner size='sm' />
+                    <span className='pl-3'>Loading...</span>
+                  </>
+                ) : (
+                  'Sign Up'
+                )}
+              </p>
             </Button>
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span className='subpixel-antialiased'>Have an account?</span>
-            <Link to='/sign-in' className='subpixel-antialiased text-blue-500'>
-              Sign In
+            <Link
+              to='/sign-in'
+              className='subpixel-antialiased text-blue-500'
+              disabled={loading}
+            >
+              Sign Up
             </Link>
           </div>
           {errorMessage && (
             <div className='flex flex-col'>
               <Alert className='mt-3 font-semibold' color='failure'>
                 <span className='flex items-center gap-2'>
-                  <CiCircleAlert /> {errorMessage}
+                  <CiCircleAlert className='text-xl' /> {errorMessage}
                 </span>
               </Alert>
             </div>
