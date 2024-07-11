@@ -108,7 +108,7 @@ export default function Signup() {
               className='subpixel-antialiased text-blue-500'
               disabled={loading}
             >
-              Sign Up
+              Sign In
             </Link>
           </div>
           {errorMessage && (
