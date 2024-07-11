@@ -38,7 +38,7 @@ export default function Signup() {
     }
   }
   return (
-    <div className='min-h-screen mt-6 m-6'>
+    <div className='min-h-dvh mt-20 m-6'>
       <div className='flex max-w-4xl mx-auto flex-col md:flex-row md:items-center gap-6'>
         {/* Left Side */}
         <div className='flex-1 sticky'>
