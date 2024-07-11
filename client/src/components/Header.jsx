@@ -2,6 +2,7 @@ import { Navbar, TextInput, Button } from 'flowbite-react'
 import { Link, useLocation } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { FaMoon } from 'react-icons/fa'
+import { PiSignIn } from 'react-icons/pi'
 
 export default function Header() {
   const path = useLocation().pathname
@@ -32,27 +33,38 @@ export default function Header() {
         </Button>
         <Link to='/sign-in'>
           <Button
-            className='bg-gradient-to-r from-green-600 via-green-500 to-green-400'
+            className=' bg-gradient-to-r from-green-600 via-green-500 to-green-400'
             outline
           >
-            Sign In
+            <span className='flex gap-1 items-center text-center subpixel-antialiased font-semibold'>
+              <PiSignIn /> Sign In
+            </span>
           </Button>
         </Link>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/' className='text-base font-bold'>
+          <Link
+            to='/'
+            className='subpixel-antialiased text-base font-bold hover:text-green-400'
+          >
             Home
           </Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/about'} as={'div'}>
-          <Link to='/about' className='text-base font-bold'>
+          <Link
+            to='/about'
+            className='subpixel-antialiased text-base font-bold hover:text-green-400'
+          >
             About
           </Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/projects'} as={'div'}>
-          <Link to='/projects' className='text-base font-bold'>
+          <Link
+            to='/projects'
+            className='text-base font-bold hover:text-green-400'
+          >
             Projects
           </Link>
         </Navbar.Link>
