@@ -61,7 +61,7 @@ export default function Signin() {
           </p>
         </div>
         {/* Right Side */}
-        <div className='flex-1'>
+        <div className='flex-1 h-[450px]'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
               <Label value='Your Email' />
