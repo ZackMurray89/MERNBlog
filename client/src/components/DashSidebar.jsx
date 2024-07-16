@@ -46,6 +46,7 @@ export default function DashSidebar() {
               label={currentUser.isAdmin ? 'Admin' : 'User'}
               labelColor='dark'
               as='div'
+              className='hover:bg-slate-300 dark:hover:bg-slate-600'
             >
               Profile
             </Sidebar.Item>
@@ -62,7 +63,8 @@ export default function DashSidebar() {
               </Sidebar.Item>
             </Link>
           )}
-
+        </Sidebar.ItemGroup>
+        <Sidebar.ItemGroup>
           <Sidebar.Item
             onClick={handleSignOut}
             icon={HiArrowSmRight}
