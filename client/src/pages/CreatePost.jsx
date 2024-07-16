@@ -111,6 +111,7 @@ export default function CreatePost() {
             <option value='nextjs'>Next.js</option>
             <option value='vuejs'>Vue.js</option>
             <option value='expressjs'>Express.js</option>
+            <option value='vscode'>VS Code</option>
             <option value='other'>Other</option>
           </Select>
         </div>
