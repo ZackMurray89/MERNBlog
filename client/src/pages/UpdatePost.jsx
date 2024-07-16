@@ -11,7 +11,7 @@ import {
 import { app } from '../firebase'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export default function CreatePost() {
@@ -191,6 +191,11 @@ export default function CreatePost() {
         <Button type='submit' gradientDuoTone='greenToBlue'>
           Update
         </Button>
+        <Link to={'/dashboard?tab=posts'}>
+          <Button gradientDuoTone='greenToBlue' outline className='w-full'>
+            Cancel
+          </Button>
+        </Link>
         {publishError && (
           <Alert className='mt-5' color='failure'>
             {publishError}
