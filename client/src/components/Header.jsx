@@ -36,7 +36,7 @@ export default function Header() {
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <span className='px-2 py-1 mx-1 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-lg text-white'>
+        <span className=' h-10 px-2 py-1 mx-1 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-lg text-white'>
           WebNexus.dev Blog
         </span>
       </Link>
@@ -49,14 +49,13 @@ export default function Header() {
           className='hidden lg:inline'
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+      <Button className='w-12 h-10 lg:hidden' color='gray'>
         <AiOutlineSearch />
       </Button>
-      <div className='flex gap-2 md:order-2'>
+      <div className='flex gap-2 md:order-2 items-center justify-center'>
         <Button
-          className='w-12 h-10 hidden sm:inline'
+          className='w-12 h- hidden sm:inline'
           color='gray'
-          pill
           onClick={() => dispatch(toggleTheme())}
         >
           {theme === 'light' ? <FaMoon /> : <FaSun />}
