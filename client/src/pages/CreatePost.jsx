@@ -104,15 +104,16 @@ export default function CreatePost() {
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <option value='uncategorized'>Select Category</option>
-            <option value='html-css'>HTML/CSS</option>
-            <option value='javascript'>JavaScript</option>
-            <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
-            <option value='vuejs'>Vue.js</option>
-            <option value='expressjs'>Express.js</option>
-            <option value='vscode'>VS Code</option>
-            <option value='other'>Other</option>
+            <option value='N/A'>Select Category</option>
+            <option value='HTML/CSS'>HTML/CSS</option>
+            <option value='JavaScript'>JavaScript</option>
+            <option value='TypeScript'>TypeScript</option>
+            <option value='ReactJS'>React.js</option>
+            <option value='NextJS'>Next.js</option>
+            <option value='VueJS'>Vue.js</option>
+            <option value='ExpressJS'>Express.js</option>
+            <option value='VSCode'>VS Code</option>
+            <option value='MongoDB'>MongoDB</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-emerald-500 border-dotted p-3'>

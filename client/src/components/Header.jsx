@@ -31,7 +31,7 @@ export default function Header() {
   }
 
   return (
-    <Navbar className='border-b-2'>
+    <Navbar className='border-b-2 bg-slate-100'>
       <Link
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
@@ -45,6 +45,7 @@ export default function Header() {
           type='text'
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
+          sizing='sm'
           className='hidden lg:inline'
         />
       </form>
@@ -65,7 +66,12 @@ export default function Header() {
             arrowIcon={false}
             inline
             label={
-              <Avatar alt='user' img={currentUser.profilePicture} rounded />
+              <Avatar
+                alt='user'
+                img={currentUser.profilePicture}
+                rounded
+                className='border-2 border-green-500 rounded-full'
+              />
             }
           >
             <Dropdown.Header>

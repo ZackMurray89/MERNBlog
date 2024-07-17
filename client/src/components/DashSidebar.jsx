@@ -44,7 +44,10 @@ export default function DashSidebar() {
     root: {
       base: 'h-full',
       inner:
-        'h-full overflow-y-auto overflow-x-hidden rounded bg-slate-200 dark:bg-gray-800 px-3 py-4',
+        'h-full overflow-y-auto overflow-x-hidden rounded bg-slate-100 dark:bg-gray-800 px-3 py-4',
+    },
+    item: {
+      active: 'bg-gray-300 dark:bg-gray-700',
     },
   }
 
@@ -71,6 +74,7 @@ export default function DashSidebar() {
                 active={tab === 'posts'}
                 icon={HiDocumentText}
                 as='div'
+                className='hover:bg-slate-300 dark:hover:bg-slate-600'
               >
                 Posts
               </Sidebar.Item>
@@ -83,6 +87,7 @@ export default function DashSidebar() {
                 active={tab === 'users'}
                 icon={HiUserGroup}
                 as='div'
+                className='hover:bg-slate-300 dark:hover:bg-slate-600'
               >
                 Users
               </Sidebar.Item>
@@ -93,7 +98,7 @@ export default function DashSidebar() {
           <Sidebar.Item
             onClick={handleSignOut}
             icon={HiArrowSmRight}
-            className='cursor-pointer'
+            className='hover:bg-slate-300 dark:hover:bg-slate-600 cursor-pointer'
           >
             Sign Out
           </Sidebar.Item>

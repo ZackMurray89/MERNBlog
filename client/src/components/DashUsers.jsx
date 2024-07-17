@@ -72,16 +72,20 @@ export default function DashUsers() {
         <>
           <Table hoverable className='shadow-md'>
             <Table.Head>
-              <Table.HeadCell>Date Created</Table.HeadCell>
-              <Table.HeadCell>User Image</Table.HeadCell>
-              <Table.HeadCell>Username</Table.HeadCell>
-              <Table.HeadCell>Email</Table.HeadCell>
-              <Table.HeadCell>Admin</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>
+                Date Created
+              </Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>
+                User Image
+              </Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>Username</Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>Email</Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>Admin</Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>Delete</Table.HeadCell>
             </Table.Head>
             {users.map((user) => (
               <Table.Body className='divide-y'>
-                <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                <Table.Row className='bg-[whitesmoke] dark:border-gray-700 dark:bg-gray-800'>
                   <Table.Cell>
                     {new Date(user.createdAt).toLocaleDateString()}
                   </Table.Cell>

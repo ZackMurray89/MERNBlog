@@ -78,18 +78,24 @@ export default function DashPost() {
         <>
           <Table hoverable className='shadow-md'>
             <Table.Head>
-              <Table.HeadCell>Date Updated</Table.HeadCell>
-              <Table.HeadCell>Post Image</Table.HeadCell>
-              <Table.HeadCell>Post Title</Table.HeadCell>
-              <Table.HeadCell>Category</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
-              <Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>
+                Date Updated
+              </Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>
+                Post Image
+              </Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>
+                Post Title
+              </Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>Category</Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>Delete</Table.HeadCell>
+              <Table.HeadCell className='bg-slate-200'>
                 <span>Edit</span>
               </Table.HeadCell>
             </Table.Head>
             {userPosts.map((post) => (
               <Table.Body className='divide-y'>
-                <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                <Table.Row className='bg-[whitesmoke] dark:border-gray-700 dark:bg-gray-800'>
                   <Table.Cell>
                     {new Date(post.updatedAt).toLocaleDateString()}
                   </Table.Cell>
@@ -98,7 +104,7 @@ export default function DashPost() {
                       <img
                         src={post.image}
                         alt={post.title}
-                        className='w-20 h-10 object-cover bg-gray-500'
+                        className='w-20 h-10 object-cover bg-gray-500 border-2 border-green-500'
                       />
                     </Link>
                   </Table.Cell>
