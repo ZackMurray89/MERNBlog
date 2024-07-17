@@ -1,7 +1,7 @@
 import { Alert, Button, Textarea } from 'flowbite-react'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Comment from './Comment'
 
 // eslint-disable-next-line react/prop-types
@@ -12,6 +12,8 @@ export default function CommentSection({ postId }) {
   const [comments, setComments] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [commentToDelete, setCommentToDelete] = useState(null)
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -44,7 +46,33 @@ export default function CommentSection({ postId }) {
     }
   }
 
-  const handleLike = async () => {}
+  const handleLike = async (commentId) => {
+    try {
+      if (!currentUser) {
+        navigate('/sign-in')
+        return
+      }
+      const res = await fetch(`/api/comment/likeComment/${commentId}`, {
+        method: 'PUT',
+      })
+      if (res.ok) {
+        const data = await res.json()
+        setComments(
+          comments.map((comment) =>
+            comment._id === commentId
+              ? {
+                  ...comment,
+                  likes: data.likes,
+                  numberOfLikes: data.likes.length,
+                }
+              : comment
+          )
+        )
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleEdit = async () => {}
 
