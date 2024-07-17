@@ -1,5 +1,10 @@
 import { Sidebar } from 'flowbite-react'
-import { HiArrowSmRight, HiDocumentText, HiUser } from 'react-icons/hi'
+import {
+  HiArrowSmRight,
+  HiDocumentText,
+  HiUser,
+  HiUserGroup,
+} from 'react-icons/hi'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { signoutSuccess } from '../redux/user/userSlice'
@@ -35,8 +40,16 @@ export default function DashSidebar() {
     }
   }
 
+  const customTheme = {
+    root: {
+      base: 'h-full',
+      inner:
+        'h-full overflow-y-auto overflow-x-hidden rounded bg-slate-200 dark:bg-gray-800 px-3 py-4',
+    },
+  }
+
   return (
-    <Sidebar className='w-full md:w-56'>
+    <Sidebar className='w-full md:w-56' theme={customTheme}>
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-0.25'>
           <Link to='/dashboard?tab=profile'>
@@ -60,6 +73,18 @@ export default function DashSidebar() {
                 as='div'
               >
                 Posts
+              </Sidebar.Item>
+            </Link>
+          )}
+
+          {currentUser.isAdmin && (
+            <Link to='/dashboard?tab=users'>
+              <Sidebar.Item
+                active={tab === 'users'}
+                icon={HiUserGroup}
+                as='div'
+              >
+                Users
               </Sidebar.Item>
             </Link>
           )}
