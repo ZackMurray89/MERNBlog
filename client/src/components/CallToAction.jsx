@@ -5,10 +5,13 @@ export default function CallToAction() {
   return (
     <div className='flex flex-col mt-4 mb-4 sm:flex-row p-3 border-4 border-green-500 justify-center items-center rounded rounded-tl-3xl rounded-br-3xl text-center'>
       <div className='flex-1 justify-center flex flex-col'>
-        <h2 className='text-2xl'>Want to learn more?</h2>
+        <h2 className='text-2xl'>
+          Want to know when there&apos;s new content?
+        </h2>
         <p className='text-gray-400 my-2'>
-          Come back weekly for new posts about your favorite WebDev technologies
-          and concepts.
+          Join our mailing list by subscribing below to get weekly updates on
+          new and upcoming posts about your favorite topics and technologies in
+          WebDev!
         </p>
         <Link
           to='/'
@@ -19,7 +22,7 @@ export default function CallToAction() {
             gradientDuoTone='greenToBlue'
             className='rounded-tl-xl rounded-bl-none'
           >
-            WebNexus.dev
+            Subscribe to WebNexus.dev
           </Button>
         </Link>
       </div>

@@ -5,8 +5,10 @@ import { FaThumbsUp } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 
 // eslint-disable-next-line react/prop-types
-export default function Comment({ comment, onLike }) {
+export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({})
+  const [isEditing, setIsEditing] = useState(false)
+  const [editedContent, setEditedContent] = useState(comment.content)
   const { currentUser } = useSelector((state) => state.user)
   console.log(user)
 
@@ -25,6 +27,11 @@ export default function Comment({ comment, onLike }) {
     }
     getUser()
   }, [comment])
+
+  const handleEdit = () => {
+    setIsEditing(true)
+    setEditedContent(comment.content)
+  }
 
   return (
     <div className='flex p-4 border-b dak:border-gray-600 text-sm'>
@@ -47,7 +54,7 @@ export default function Comment({ comment, onLike }) {
         <p className='text-gray-500 mb-2 dark:text-gray-300'>
           {comment.content}
         </p>
-        <div className='flex items-center pt-2 text-xs border-t dark:border-gray-700 max-w-fit'>
+        <div className='flex items-center pt-2 text-xs border-t dark:border-gray-700 max-w-fit gap-2'>
           <button
             type='button'
             onClick={() => onLike(comment._id)}
@@ -65,6 +72,25 @@ export default function Comment({ comment, onLike }) {
                 ' ' +
                 (comment.numberOfLikes === 1 ? 'like' : 'likes')}
           </p>
+          {currentUser &&
+            (currentUser._id === comment.userId || currentUser.isAdmin) && (
+              <>
+                <button
+                  type='button'
+                  onClick={handleEdit}
+                  className='text-gray-400 hover:text-blue-500'
+                >
+                  Edit
+                </button>
+                <button
+                  type='button'
+                  onClick={() => onDelete(comment._id)}
+                  className='text-gray-400 hover:text-blue-500'
+                >
+                  Delete
+                </button>
+              </>
+            )}
         </div>
       </div>
     </div>
