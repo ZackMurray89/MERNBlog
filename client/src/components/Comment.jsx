@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react'
 import moment from 'moment'
+import { useEffect, useState } from 'react'
 import { FaThumbsUp } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { Button, Textarea } from 'flowbite-react'
 
 // eslint-disable-next-line react/prop-types
 export default function Comment({ comment, onLike, onEdit, onDelete }) {
+  const { currentUser } = useSelector((state) => state.user)
+
   const [user, setUser] = useState({})
   const [isEditing, setIsEditing] = useState(false)
   const [editedContent, setEditedContent] = useState(comment.content)
-  const { currentUser } = useSelector((state) => state.user)
-  console.log(user)
 
   useEffect(() => {
     const getUser = async () => {
@@ -28,11 +28,6 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
     }
     getUser()
   }, [comment])
-
-  const handleEdit = () => {
-    setIsEditing(true)
-    setEditedContent(comment.content)
-  }
 
   const handleSave = async () => {
     try {
@@ -52,6 +47,11 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
     } catch (error) {
       console.log(error.message)
     }
+  }
+
+  const handleEdit = () => {
+    setIsEditing(true)
+    setEditedContent(comment.content)
   }
 
   return (
@@ -135,7 +135,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                     <button
                       type='button'
                       onClick={() => onDelete(comment._id)}
-                      className='text-gray-400 hover:text-blue-500'
+                      className='text-gray-400 hover:text-red-500'
                     >
                       Delete
                     </button>
