@@ -57,6 +57,7 @@ export default function CommentSection({ postId }) {
         method: 'PUT',
       })
       if (res.ok) {
+        // eslint-disable-next-line no-unused-vars
         const data = await res.json()
         setComments(comments.filter((comment) => comment._id !== commentId))
       }
@@ -84,6 +85,7 @@ export default function CommentSection({ postId }) {
         method: 'DELETE',
       })
       if (res.ok) {
+        // eslint-disable-next-line no-unused-vars
         const data = await res.json()
         setComments(comments.filter((comment) => comment._id !== commentId))
       }
@@ -203,7 +205,10 @@ export default function CommentSection({ postId }) {
               Are you sure you want to delete this post?
             </h3>
             <div className='flex justify-center gap-4'>
-              <Button color='failure' onClick={handleDelete}>
+              <Button
+                color='failure'
+                onClick={() => handleDelete(commentToDelete)}
+              >
                 Yes, I&apos;m sure
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>

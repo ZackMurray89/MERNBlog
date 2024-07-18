@@ -10,7 +10,6 @@ export default function PostPage() {
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
-  console.log(post)
 
   useEffect(() => {
     const fetchPost = async () => {
