@@ -31,7 +31,7 @@ export default function Header() {
   }
 
   return (
-    <Navbar className='border-b-2 bg-slate-100'>
+    <Navbar className='border-b-2 bg-slate-200'>
       <Link
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
@@ -46,7 +46,7 @@ export default function Header() {
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
           sizing='sm'
-          className='hidden lg:inline'
+          className='hidden lg:inline bg-[#f2f3f4]'
         />
       </form>
       <Button className='w-12 h-10 lg:hidden' color='gray'>
@@ -58,7 +58,7 @@ export default function Header() {
           color='gray'
           onClick={() => dispatch(toggleTheme())}
         >
-          {theme === 'light' ? <FaMoon /> : <FaSun />}
+          {theme === 'light' ? <FaMoon className='bg-[#f2f3f4]' /> : <FaSun />}
         </Button>
         {currentUser ? (
           <Dropdown

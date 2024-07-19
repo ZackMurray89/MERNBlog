@@ -3,7 +3,6 @@ import { Button, Modal, Table } from 'flowbite-react'
 import { useEffect, useState } from 'react'
 import { HiOutlineExclamationCircle } from 'react-icons/hi'
 import { useSelector } from 'react-redux'
-import { FaCheck, FaTimes } from 'react-icons/fa'
 
 export default function DashComments() {
   const { currentUser } = useSelector((state) => state.user)

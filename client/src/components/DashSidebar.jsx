@@ -6,6 +6,7 @@ import {
   HiUser,
   HiUserGroup,
 } from 'react-icons/hi'
+import { TfiDashboard } from 'react-icons/tfi'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { signoutSuccess } from '../redux/user/userSlice'
@@ -45,7 +46,7 @@ export default function DashSidebar() {
     root: {
       base: 'h-full',
       inner:
-        'h-full overflow-y-auto overflow-x-hidden rounded bg-slate-100 dark:bg-gray-800 px-3 py-4',
+        'h-full overflow-y-auto overflow-x-hidden rounded bg-slate-200 dark:bg-gray-800 px-3 py-4',
     },
     item: {
       active: 'bg-gray-300 dark:bg-gray-700',
@@ -68,6 +69,19 @@ export default function DashSidebar() {
               Profile
             </Sidebar.Item>
           </Link>
+
+          {currentUser.isAdmin && (
+            <Link to='/dashboard?tab=dashboard'>
+              <Sidebar.Item
+                active={tab === 'dash'}
+                icon={TfiDashboard}
+                as='div'
+                className='hover:bg-slate-300 dark:hover:bg-slate-600'
+              >
+                Dashboard
+              </Sidebar.Item>
+            </Link>
+          )}
 
           {currentUser.isAdmin && (
             <Link to='/dashboard?tab=users'>
