@@ -26,7 +26,7 @@ export default function Dashboard() {
       {/* Main Content */}
       {tab === 'profile' && <DashProfile />}
       {/* Dashboard */}
-      {tab === 'dash' && <DashboardComp />}
+      {tab === 'dashboard' && <DashboardComp />}
       {/* Posts */}
       {tab === 'posts' && <DashPost />}
       {/* Users */}
