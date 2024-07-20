@@ -57,9 +57,12 @@ export default function Header() {
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <span className=' h-10 px-2 py-1 mx-1 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-lg text-white'>
-          WebNexus.dev Blog
-        </span>
+        <img
+          className='bg-gradient-to-r from-green-500 via-green-550 to-green-600 h-10 rounded-lg w-80 px-2 py-1'
+          src='https://res.cloudinary.com/dsc6sui8b/image/upload/v1721484069/webnexusdev--blog-high-resolution-logo-white-transparent_mu6js0.svg'
+          height='35px'
+          width='198.22px'
+        />
       </Link>
       <form onSubmit={handleSubmit}>
         <TextInput

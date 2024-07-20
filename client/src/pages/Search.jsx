@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Select, TextInput } from 'flowbite-react'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
