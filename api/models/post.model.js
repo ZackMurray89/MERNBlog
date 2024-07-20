@@ -2,10 +2,14 @@ import mongoose from 'mongoose'
 
 const photoCategory = {
   uncategorized:
-    'https://cdn.pixabay.com/photo/2016/05/08/14/58/icon-1379228_960_720.png',
+    'https://cdn.pixabay.com/photo/2015/10/27/14/40/programming-1009134_1280.jpg',
   JavaScript:
-    'https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_1280.png',
+    'https://res.cloudinary.com/dsc6sui8b/image/upload/v1721450115/JSforBlog_rccwzu.png',
+  ReactJS:
+    'https://res.cloudinary.com/dsc6sui8b/image/upload/v1721451559/ReactForBlogFinal_qkpsoj.png',
 }
+
+// https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_1280.png
 
 const postSchema = new mongoose.Schema(
   {
