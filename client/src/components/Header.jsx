@@ -1,5 +1,5 @@
 import { Navbar, TextInput, Button, Dropdown, Avatar } from 'flowbite-react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import { PiSignIn } from 'react-icons/pi'
@@ -7,8 +7,13 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { toggleTheme } from '../redux/theme/themeSlice'
 import { signoutSuccess } from '../redux/user/userSlice'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const path = useLocation().pathname
   const dispatch = useDispatch()
   const { currentUser } = useSelector((state) => state.user)
@@ -30,6 +35,22 @@ export default function Header() {
     }
   }
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search)
+    const searchTermFromUrl = urlParams.get('searchTerm')
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl)
+    }
+  }, [location.search])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const urlParams = new URLSearchParams(location.search)
+    urlParams.set('searchTerm', searchTerm)
+    const searchQuery = urlParams.toString()
+    navigate(`/search?${searchQuery}`)
+  }
+
   return (
     <Navbar className='border-b-2 bg-slate-200'>
       <Link
@@ -40,13 +61,15 @@ export default function Header() {
           WebNexus.dev Blog
         </span>
       </Link>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TextInput
           type='text'
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
           sizing='sm'
           className='hidden lg:inline bg-[#f2f3f4]'
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
       <Button className='w-12 h-10 lg:hidden' color='gray'>
